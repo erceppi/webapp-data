@@ -1,0 +1,59 @@
+/* styles.css */
+
+/* 
+    Estilos generales para la presentación de la página web.
+    Se definen estilos para el cuerpo, encabezados, tablas y celdas.
+*/
+
+/* Estilos para el cuerpo de la página */
+body {
+    font-family: Arial, sans-serif; /* Utiliza la fuente Arial como predeterminada */
+    margin: 20px; /* Establece un margen de 20px alrededor del cuerpo */
+}
+
+/* Estilos para los encabezados */
+h1 {
+    text-align: center; /* Centra los encabezados h1 */
+    margin-bottom: 20px; /* Agrega un margen inferior de 20px a los encabezados h1 */
+}
+
+/* Estilos para las tablas */
+table {
+    width: 100%; /* Las tablas ocupan el ancho completo de su contenedor */
+    border-collapse: collapse; /* Fusiona los bordes de las celdas de la tabla */
+    margin-top: 20px; /* Agrega un margen superior de 20px a las tablas */
+}
+
+/* Estilos para las celdas de la tabla */
+th, td {
+    border: 1px solid #000; /* Agrega un borde de 1px y color negro a todas las celdas */
+    padding: 8px; /* Espaciado interno de 8px para las celdas */
+    text-align: left; /* Alinea el texto a la izquierda dentro de las celdas */
+    background-color: #fde9e0; /* Fondo crema para todas las celdas, por defecto */
+}
+
+/* Estilos para los encabezados de la tabla */
+th {
+    background-color: #48ffa3; /* Fondo verde para los encabezados */
+    color: #000000; /* Texto en negro para los encabezados */
+    font-weight: bold; /* Texto en negrita para los encabezados */
+}
+
+/* Estilos para la primera fila (encabezados y celdas) */
+tr:first-child th,
+tr:first-child td {
+    background-color: #48ffa3; /* Fondo rojo para todas las celdas de la primera fila */
+    color: #000000; /* Texto en negro para todas las celdas de la primera fila */
+    font-weight: bold; /* Texto en negrita para los encabezados */
+}
+
+/* Estilos para celdas de las filas posteriores a la primera */
+tr:not(:first-child) th,
+tr:not(:first-child) td {
+    background-color: #fde9e0; /* Fondo azul claro para celdas, excepto la primera fila */
+}
+
+/* Estilos para filas al pasar el mouse */
+tr:hover td {
+    background-color: #757575; /* Fondo para celdas en filas al pasar el mouse */
+}

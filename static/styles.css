@@ -1,0 +1,27 @@
+/* styles.css */
+
+/* Estilos para los encabezados */
+table th {
+    background-color: #48ffa3; /* Fondo verde para los encabezados */
+    color: #000000; /* Texto en negro para los encabezados */
+    font-weight: bold; /* Texto en negrita para los encabezados */
+}
+
+/* Estilos para las celdas del cuerpo de la tabla */
+table td {
+    background-color: #fde9e0; /* Fondo crema para las celdas */
+    color: #000000; /* Texto en negro para las celdas */
+}
+
+/* Estilos para la primera fila (encabezados y celdas) */
+tr.first-row td,
+tr.first-row th {
+    background-color: #48ffa3; /* Fondo rojo para todas las celdas de la primera fila */
+    color: #000000; /* Texto en negro para todas las celdas de la primera fila */
+    font-weight: bold; /* Texto en negrita para los encabezados */
+}
+
+/* Estilos para filas al pasar el mouse */
+tr:hover td {
+    background-color: #757575; /* Fondo para celdas en filas al pasar el mouse */
+}
