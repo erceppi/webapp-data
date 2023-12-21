@@ -11,7 +11,7 @@
         <input type="file" name="file" accept=".csv">
         <input type="submit" value="Cargar nuevo archivo CSV">
     </form>
-    <table>
+    <table id="data-table">
         <thead>
             <tr class="header-row">
                 {% for cell in headers %}
@@ -29,5 +29,7 @@
             {% endfor %}
         </tbody>
     </table>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="{{ url_for('static', filename='table_sort.js') }}"></script>
 </body>
 </html>
