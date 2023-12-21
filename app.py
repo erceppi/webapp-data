@@ -1,11 +1,3 @@
-"""
-Este módulo contiene la lógica principal de la aplicación web.
-Descripción adicional sobre lo que hace el módulo y su propósito general.
-Puedes incluir detalles sobre las funcionalidades, la estructura del código, etc.
-"""
-# pylint: disable=E0401
-# Deshabilitar el error de importación de Pylint (E0401) para el módulo Flask
-
 from flask import Flask, render_template, request, jsonify
 
 app = Flask(__name__)
@@ -24,16 +16,16 @@ def upload():
 
     Realiza la validación del archivo CSV y procesa sus datos si es válido.
     """
-    if 'file' not in request.files:
-        return jsonify({"error": "No se encontró ningún archivo CSV"})
+    try:
+        if 'file' not in request.files:
+            return jsonify({"error": "No se encontró ningún archivo CSV"})
 
-    file = request.files['file']
-    if file.filename == '':
-        return jsonify({"error": "Archivo no seleccionado"})
+        file = request.files['file']
+        if file.filename == '':
+            return jsonify({"error": "Archivo no seleccionado"})
 
-    if file:
+        data = []
         try:
-            # Leer el archivo CSV y procesar los datos
             stream = file.stream.read().decode("UTF8")
             data = [row.split(',') for row in stream.split('\n') if row.strip()]
 
@@ -42,13 +34,19 @@ def upload():
 
             headers = data[0]
             rows = data[1:]
-
-            # Renderizar una tabla con los datos del CSV en 'table.html'
             return render_template('table.html', headers=headers, rows=rows)
+
+        except UnicodeDecodeError as e:
+            return jsonify({"error": f"Error: No se pudo decodificar el archivo - {str(e)}"}), 400
+
+        except FileNotFoundError as e:
+            return jsonify({"error": f"Error: Archivo no encontrado - {str(e)}"}), 400
+
         except Exception as e:
-            # Manejar errores al procesar el archivo CSV
-            return jsonify({"error": f"Error al procesar el archivo CSV: {str(e)}"})
+            return jsonify({"error": f"Error al procesar el archivo CSV: {str(e)}"}), 500
+
+    except Exception as e:
+        return jsonify({"error": f"Error inesperado al manejar la solicitud: {str(e)}"}), 500
 
 if __name__ == '__main__':
-    # Iniciar la aplicación Flask en modo debug
     app.run(debug=True)

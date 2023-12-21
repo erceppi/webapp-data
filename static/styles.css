@@ -13,12 +13,10 @@ table td {
     color: #000000; /* Texto en negro para las celdas */
 }
 
-/* Estilos para la primera fila (encabezados y celdas) */
-tr.first-row td,
-tr.first-row th {
-    background-color: #48ffa3; /* Fondo rojo para todas las celdas de la primera fila */
-    color: #000000; /* Texto en negro para todas las celdas de la primera fila */
-    font-weight: bold; /* Texto en negrita para los encabezados */
+/* Estilos para la primera fila de datos */
+tbody tr:first-child td {
+    background-color: #fde9e0; /* Fondo crema para la primera fila de datos */
+    font-weight: normal; /* Texto normal para la primera fila de datos */
 }
 
 /* Estilos para filas al pasar el mouse */
